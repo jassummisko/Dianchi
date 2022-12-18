@@ -1,0 +1,18 @@
+global *
+export take = (tab, n) -> [el for el in *tab[,n]]
+export drop = (tab, n) -> [el for el in *tab[n+1,]]
+export head = (tab) -> tab[1] -- {1,2,3} -> {1}
+export tail = (tab) -> drop tab, 1 -- {1,2,3} -> {2,3}
+export map = (tab, op) -> [op el for el in *tab] 
+export foldl = (tab, op, val) ->
+    val = op val, el for el in *tab
+    val
+export fold = (tab, op) -> foldl (tail tab), op, (head tab)
+export sum = (tab) -> fold tab, (a,b)->a+b
+export split = (str, sep) -> [el for el in (str.." ")\gmatch "(.-)(#{sep})"]
+export words = (str) -> split str, "%s"
+export sort = (tab, func) ->  
+    buff = {i, k for i, k in ipairs tab}
+    table.sort buff if func == nil
+    table.sort buff, func if func
+    buff
