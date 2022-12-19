@@ -7,10 +7,15 @@ export map = (tab, op) -> [op el for el in *tab]
 export foldl = (tab, op, val) ->
     val = op val, el for el in *tab
     val
+export foldr = (tab, op, val) ->
+    val = op val, tab[i] for i=#tab, 1, -1
+    val
 export fold = (tab, op) -> foldl (tail tab), op, (head tab)
 export sum = (tab) -> fold tab, (a,b)->a+b
-export split = (str, sep) -> [el for el in (str.." ")\gmatch "(.-)(#{sep})"]
+export product = (tab) -> fold tab, (a,b)->a*b
+export split = (str, sep) -> [el for el in (str..sep)\gmatch "(.-)(#{sep})"]
 export words = (str) -> split str, "%s"
+export reverse = (tab) -> [tab[i] for i=#tab, 1, -1]
 export sort = (tab, func) ->  
     buff = {i, k for i, k in ipairs tab}
     table.sort buff if func == nil
