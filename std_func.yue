@@ -13,7 +13,7 @@ export foldr = (tab, op, val) ->
 export fold = (tab, op) -> foldl (tail tab), op, (head tab)
 export sum = (tab) -> fold tab, (a,b)->a+b
 export product = (tab) -> fold tab, (a,b)->a*b
-export split = (str, sep) -> [el for el in (str..sep)\gmatch "(.-)(#{sep})"]
+export split = (str, sep) -> [el for el in (str..sep)\gmatch "([^#{sep}]+)"]
 export words = (str) -> split str, "%s"
 export reverse = (tab) -> [tab[i] for i=#tab, 1, -1]
 export sort = (tab, func) ->  
