@@ -21,3 +21,4 @@ export sort = (tab, func) ->
     table.sort buff if func == nil
     table.sort buff, func if func
     buff
+export join = (tab, sep=" ") -> fold tab, (a,b) -> a..sep..b
