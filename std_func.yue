@@ -14,6 +14,7 @@ export sum = (tab) -> fold tab, (a,b)->a+b
 export product = (tab) -> fold tab, (a,b)->a*b
 export split = (str, sep) -> [el for el in (str)\gmatch "([^#{sep}]+)"]
 export words = (str) -> split str, "%s"
+export chars = (str) -> [str\sub i, i for i=1, #str]
 export reverse = (tab) -> [tab[i] for i=#tab, 1, -1]
 export sort = (tab, func) -> 
     buff = {i, k for i, k in ipairs tab}
