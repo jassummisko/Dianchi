@@ -23,6 +23,7 @@ export functools = with {}
 export checkertools = with {}
     .any = (tab) -> tab |> functools.fold (a,b) -> a or b
     .all = (tab) -> tab |> functools.fold (a,b) -> a and b
+    .contains = (tab, el) -> ({val, key for key, val in pairs tab})[el]?
 
 export strtools = with {}
     .split = (str, sep) -> [el for el in (str)\gmatch "([^#{sep}]+)"]

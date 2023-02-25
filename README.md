@@ -7,26 +7,27 @@ The following modules are currently available:
 ```moon
 "Name   Args          Description"
 ----------------------------------
-take    table, n      -- Return first n elements of table
-drop    table, n      -- Return table with first n elements removed
-head    table         -- Return first element of table
-tail    table         -- Return all but first element of table
-map     table, f      -- Return table with function f applied to each element
-foldl   table, f, v   -- Fold table from left to right with function f and starting from value v
-foldr   table, f, v   -- Like foldl, but right to left
-fold    table, f      -- Equivalent to foldl (tail table), f, (head table)
-sum     table         -- Return sum of table
-product table         -- Return product of table
-reverse table         -- Return table in reverse order
-sorted  table(, f)    -- Return sorted table with func as f as an optional key function
+take    table, n      -- Return first n elements of table.
+drop    table, n      -- Return table with first n elements removed.
+head    table         -- Return first element of table.
+tail    table         -- Return all but first element of table.
+map     table, f      -- Return table with function f applied to each element.
+foldl   table, f, v   -- Fold table from left to right with function f and starting from value v.
+foldr   table, f, v   -- Like foldl, but right to left.
+fold    table, f      -- Equivalent to foldl (tail table), f, (head table).
+sum     table         -- Return sum of table.
+product table         -- Return product of table.
+reverse table         -- Return table in reverse order.
+sorted  table(, f)    -- Return sorted table with func as f as an optional key function.
 ```
 
 ### `checkertools` - Functions commonly used to check for truth values.
 ```moon
-"Name   Args          Description"
+"Name    Args          Description"
 ----------------------------------
-any     table         -- Returns true if any of the elements are true, otherwise returns false
-all     table         -- Returns true if all of the elements are true, otherwise returns false
+any      table         -- Returns true if any of the elements are true, otherwise returns false.
+all      table         -- Returns true if all of the elements are true, otherwise returns false.
+contains table, el     -- Returns true if el is contained in table.
 ```
 
 ### `strtools` - Common string manupulation functions
@@ -43,5 +44,5 @@ join    table(, sep)  -- Concatenates all strings of table with sep in between, 
 ```moon
 "Name     Args    Description"
 ----------------------------------
-importAll table   -- Imports all elements of table into global scope
+importAll table   -- Imports all elements of table into global scope.
 ```
