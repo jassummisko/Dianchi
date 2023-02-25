@@ -26,7 +26,7 @@ export checkertools = with {}
 
 export strtools = with {}
     .split = (str, sep) -> [el for el in (str)\gmatch "([^#{sep}]+)"]
-    .words = (str) -> split str, "%s"
+    .words = (str) -> strtools.split str, "%s"
     .chars = (str) -> [str\sub i, i for i=1, #str]
     .join = (tab, sep=" ") -> functools.fold tab, (a,b) -> a..sep..b
 
