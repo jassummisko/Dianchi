@@ -1,4 +1,4 @@
-# Dianchi - Lua batteries written in Yuescript
+# Dianchi - Batteries for Yuescript
 
 This is a Yuescript library serving to provide functions one would commonly expect to see in a standard library.
 
