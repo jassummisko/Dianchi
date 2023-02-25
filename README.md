@@ -35,7 +35,7 @@ all     table         -- Returns true if all of the elements are true, otherwise
 ----------------------------------
 split   string, spr   -- Returns table of string split into substrings by separator spr.
 words   string        -- Returns table of string split into words.
-chas    string        -- Returns table of each character of string.
+chars   string        -- Returns table of each character of string.
 join    table(, sep)  -- Concatenates all strings of table with sep in between, then returns the concatenated string; sep defaults to space if left empty. 
 ```
 
