@@ -1,0 +1,34 @@
+export functools = with {}
+    .take = (tab, n) -> [el for el in *tab[,n]]
+    .drop = (tab, n) -> [el for el in *tab[n+1,]]
+    .head = (tab) -> tab[1] -- {1,2,3} -> {1}
+    .tail = (tab) -> functools.drop tab, 1 -- {1,2,3} -> {2,3}
+    .map = (tab, op) -> [op el for el in *tab] 
+    .foldl = (tab, op, val) ->
+        val = op val, el for el in *tab
+        val
+    .foldr = (tab, op, val) ->
+        val = op val, tab[i] for i=#tab, 1, -1
+        val
+    .fold = (tab, op) -> functools.foldl (functools.tail tab), op, (functools.head tab)
+    .sum = (tab) -> functools.fold tab, (a,b)->a+b
+    .product = (tab) -> functools.fold tab, (a,b)->a*b
+    .reverse = (tab) -> [tab[i] for i=#tab, 1, -1]
+    .sorted = (tab, func) -> 
+        buff = {i, k for i, k in ipairs tab}
+        table.sort buff unless func?
+        table.sort buff, func if func
+        buff
+
+export checkertools = with {}
+    .any = (tab) -> tab |> functools.fold (a,b) -> a or b
+    .all = (tab) -> tab |> functools.fold (a,b) -> a and b
+
+export strtools = with {}
+    .split = (str, sep) -> [el for el in (str)\gmatch "([^#{sep}]+)"]
+    .words = (str) -> split str, "%s"
+    .chars = (str) -> [str\sub i, i for i=1, #str]
+    .join = (tab, sep=" ") -> functools.fold tab, (a,b) -> a..sep..b
+
+export misc = with {}
+    .importAll = (lib) -> _G[key] = val for key, val in pairs lib 
